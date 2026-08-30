@@ -1,0 +1,177 @@
+schema_version: 1
+organization: Teaching-Works-Lab
+marketplace:
+  name: teaching-works-lab
+  file: .agents/plugins/marketplace.json
+  add_command: codex plugin marketplace add Teaching-Works-Lab/.github
+
+items:
+  - id: course-teaching-workflows
+    type: plugin-bundle
+    repository: https://github.com/Teaching-Works-Lab/course-teaching-workflows
+    plugin_name: course-teaching-workflows
+    role: Build reusable course foundations, assessment plans, and standards-compliant syllabus documents.
+    scope: Course-level evidence synthesis and document production.
+    install:
+      policy: AVAILABLE
+      command: codex plugin add course-teaching-workflows@teaching-works-lab
+      auto_installs: []
+    skills:
+      explicit_triggers:
+        - $course-foundation-builder
+        - $course-assessment-planner
+        - $course-syllabus-compiler
+      bundled:
+        - course-foundation-builder
+        - course-assessment-planner
+        - course-syllabus-compiler
+    inputs:
+      - course materials
+      - reference syllabi
+      - optional training-program evidence
+    outputs:
+      - course-foundation.md
+      - assessment-plan.md
+      - syllabus-working.md
+      - syllabus.docx
+    provides:
+      - course-foundation
+      - assessment-design
+      - syllabus-compilation
+    relations:
+      - type: optional-input
+        target: intelligent-manufacturing-syllabus
+        required: false
+      - type: optional-companion
+        target: exam-word-skill
+        required: false
+      - type: optional-companion
+        target: course-assessment-archive-skill
+        required: false
+
+  - id: training-program-skill-factory
+    type: skill-factory
+    repository: https://github.com/Teaching-Works-Lab/training-program-skill-factory
+    plugin_name: training-program-skill-factory
+    role: Convert a university training program into a separate, reviewable professional data Skill.
+    scope: Program-level extraction, validation, anonymization, and Skill generation.
+    install:
+      policy: AVAILABLE
+      command: codex plugin add training-program-skill-factory@teaching-works-lab
+      auto_installs: []
+    skills:
+      explicit_triggers:
+        - $training-program-skill-factory
+      bundled:
+        - training-program-skill-factory
+    inputs:
+      - university training-program PDF
+      - review and anonymization decisions
+    outputs:
+      - validated program.json
+      - professional syllabus data Skill
+    provides:
+      - training-program-ingestion
+      - professional-skill-generation
+    relations:
+      - type: generated-artifact
+        target: intelligent-manufacturing-syllabus
+        required: false
+
+  - id: intelligent-manufacturing-syllabus
+    type: generated-data-skill
+    repository: https://github.com/Teaching-Works-Lab/intelligent-manufacturing-syllabus
+    plugin_name: intelligent-manufacturing-syllabus
+    role: Query reviewable Intelligent Manufacturing 2025 training-program data for syllabus preparation.
+    scope: One professional program and version; not a generic syllabus writer.
+    install:
+      policy: AVAILABLE
+      command: codex plugin add intelligent-manufacturing-syllabus@teaching-works-lab
+      auto_installs: []
+    skills:
+      explicit_triggers:
+        - $intelligent-manufacturing-syllabus
+      bundled:
+        - intelligent-manufacturing-syllabus
+    inputs:
+      - course name or code
+      - bundled reviewed program data
+    outputs:
+      - official course fields
+      - official indicator support
+      - derived objective traces
+      - pending syllabus fields
+    provides:
+      - professional-training-program-evidence
+    relations:
+      - type: generated-by
+        target: training-program-skill-factory
+        required: false
+      - type: optional-input-to
+        target: course-teaching-workflows
+        required: false
+
+  - id: exam-word-skill
+    type: document-skill
+    repository: https://github.com/Teaching-Works-Lab/exam-word-skill
+    plugin_name: exam-word-skill
+    role: Compare, normalize, reconstruct, and verify university exam Word documents.
+    scope: Exam and test-paper documents; not ordinary Word editing or assessment design.
+    install:
+      policy: AVAILABLE
+      command: codex plugin add exam-word-skill@teaching-works-lab
+      auto_installs: []
+    skills:
+      explicit_triggers:
+        - $exam-word
+      bundled:
+        - exam-word
+    inputs:
+      - exam DOCX or PDF
+      - optional standard DOCX template
+    outputs:
+      - comparison report
+      - normalized exam DOCX
+      - verification report
+    provides:
+      - exam-document-normalization
+    relations:
+      - type: optional-companion
+        target: course-teaching-workflows
+        required: false
+      - type: optional-companion
+        target: course-assessment-archive-skill
+        required: false
+
+  - id: course-assessment-archive-skill
+    type: policy-skill
+    repository: https://github.com/Teaching-Works-Lab/course-assessment-archive-skill
+    plugin_name: course-assessment-archive-skill
+    role: Organize and review course assessment and exam-material archives by role.
+    scope: Current archive rules and responsibility mapping; not exam formatting or assessment design.
+    install:
+      policy: AVAILABLE
+      command: codex plugin add course-assessment-archive-skill@teaching-works-lab
+      auto_installs: []
+    skills:
+      explicit_triggers:
+        - $course-assessment-archive
+      bundled:
+        - course-assessment-archive
+    inputs:
+      - current policy evidence
+      - course assessment files
+      - user role and review scope
+    outputs:
+      - target archive tree
+      - file-to-path mapping
+      - missing-material and responsibility report
+    provides:
+      - assessment-archive-guidance
+    relations:
+      - type: optional-companion
+        target: course-teaching-workflows
+        required: false
+      - type: optional-companion
+        target: exam-word-skill
+        required: false

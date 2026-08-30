@@ -1,0 +1,73 @@
+{
+  "name": "teaching-works-lab",
+  "interface": {
+    "displayName": "Teaching Works Lab"
+  },
+  "plugins": [
+    {
+      "name": "course-teaching-workflows",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/Teaching-Works-Lab/course-teaching-workflows.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education"
+    },
+    {
+      "name": "training-program-skill-factory",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/Teaching-Works-Lab/training-program-skill-factory.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education"
+    },
+    {
+      "name": "intelligent-manufacturing-syllabus",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/Teaching-Works-Lab/intelligent-manufacturing-syllabus.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education"
+    },
+    {
+      "name": "exam-word-skill",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/Teaching-Works-Lab/exam-word-skill.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education"
+    },
+    {
+      "name": "course-assessment-archive-skill",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/Teaching-Works-Lab/course-assessment-archive-skill.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education"
+    }
+  ]
+}
