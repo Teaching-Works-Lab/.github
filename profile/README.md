@@ -11,6 +11,7 @@
 | 从培养方案建立一个专业的数据 Skill | [training-program-skill-factory](https://github.com/Teaching-Works-Lab/training-program-skill-factory) | 培养方案 PDF、复核决定 | 可查询、可审核的专业 Skill |
 | 查询智能制造工程 2025 版课程依据 | [intelligent-manufacturing-syllabus](https://github.com/Teaching-Works-Lab/intelligent-manufacturing-syllabus) | 课程名称或代码 | 课程字段、指标点关系、派生追踪 |
 | 建立课程基座、设计考核或编制课程大纲 | [course-teaching-workflows](https://github.com/Teaching-Works-Lab/course-teaching-workflows) | PPT、教材、参考大纲、培养方案依据 | `course-foundation.md`、`assessment-plan.md`、大纲 DOCX |
+| 编制教案（Markdown 可编辑 + Word 定稿） | [lesson-plan-compiler](https://github.com/Teaching-Works-Lab/lesson-plan-compiler) | PPT、教材、课程大纲、培养方案依据 | `教案-working.md`、`教案.docx` |
 | 对比、修正或套用试卷 Word 模板 | [exam-word-skill](https://github.com/Teaching-Works-Lab/exam-word-skill) | DOCX、PDF、标准模板 | 差异报告、规范化试卷 DOCX |
 | 整理和检查课程考核归档材料 | [course-assessment-archive-skill](https://github.com/Teaching-Works-Lab/course-assessment-archive-skill) | 制度要求、已有材料、角色范围 | 目录树、文件映射、缺项与责任清单 |
 
@@ -25,6 +26,7 @@ flowchart TD
     D --> F[课程基座]
     D --> G[考核设计]
     D --> H[课程大纲 Markdown / DOCX]
+    D --> K[教案 Markdown / DOCX]
     H -.需要试卷文档处理.-> I[Exam Word Skill]
     G -.需要资料归档检查.-> J[Course Assessment Archive Skill]
     I <-.可选协作.-> J
@@ -61,6 +63,7 @@ $intelligent-manufacturing-syllabus
 $course-foundation-builder
 $course-assessment-planner
 $course-syllabus-compiler
+$lesson-plan-compiler
 $exam-word
 $course-assessment-archive
 ```

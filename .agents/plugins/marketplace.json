@@ -68,6 +68,19 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Education"
+    },
+    {
+      "name": "lesson-plan-compiler",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/Teaching-Works-Lab/lesson-plan-compiler.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education"
     }
   ]
 }

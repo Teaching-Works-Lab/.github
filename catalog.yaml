@@ -175,3 +175,36 @@ items:
       - type: optional-companion
         target: exam-word-skill
         required: false
+
+  - id: lesson-plan-compiler
+    type: document-skill
+    repository: https://github.com/Teaching-Works-Lab/lesson-plan-compiler
+    plugin_name: lesson-plan-compiler
+    role: Draft, review, check, and compile standards-compliant university course teaching plans (教案) from course materials and syllabi into Markdown and Word.
+    scope: Course teaching-plan drafting and Word compilation; not syllabus (大纲) or exam documents.
+    install:
+      policy: AVAILABLE
+      command: codex plugin add lesson-plan-compiler@teaching-works-lab
+      auto_installs: []
+    skills:
+      explicit_triggers:
+        - $lesson-plan-compiler
+      bundled:
+        - lesson-plan-compiler
+    inputs:
+      - course materials (PPT,教材,参考资料)
+      - course syllabus
+      - optional training-program evidence
+    outputs:
+      - lesson-plan-working.md
+      - lesson-plan.docx
+    provides:
+      - teaching-plan-drafting
+      - teaching-plan-compilation
+    relations:
+      - type: optional-input
+        target: course-teaching-workflows
+        required: false
+      - type: optional-input
+        target: intelligent-manufacturing-syllabus
+        required: false
