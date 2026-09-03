@@ -181,7 +181,8 @@ def main() -> int:
         return 1
 
     suffix = " including public GitHub manifests" if args.check_remote else ""
-    print(f"Catalog validation passed for 5 plugins{suffix}.")
+    plugin_count = len(load_marketplace()["plugins"])
+    print(f"Catalog validation passed for {plugin_count} plugins{suffix}.")
     return 0
 
 
