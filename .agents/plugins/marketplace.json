@@ -81,6 +81,19 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Education"
+    },
+    {
+      "name": "lesson-plan-authoring-skill",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/Teaching-Works-Lab/lesson-plan-authoring-skill.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education"
     }
   ]
 }

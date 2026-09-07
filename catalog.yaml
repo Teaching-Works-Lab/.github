@@ -208,3 +208,36 @@ items:
       - type: optional-input
         target: intelligent-manufacturing-syllabus
         required: false
+      - type: optional-companion
+        target: lesson-plan-authoring-skill
+        required: false
+
+  - id: lesson-plan-authoring-skill
+    type: document-skill
+    repository: https://github.com/Teaching-Works-Lab/lesson-plan-authoring-skill
+    plugin_name: lesson-plan-authoring-skill
+    role: "Govern lesson-plan authoring and revision with a Markdown-first single-source contract: canonical Markdown is the content authority, Word is a compiled presentation artifact, content QA precedes Word compilation, and Word-to-Markdown reverse authoring is prohibited except one-time legacy migration."
+    scope: Lesson-plan authoring/revision discipline and contracts; complements the lesson-plan-compiler generator.
+    install:
+      policy: AVAILABLE
+      command: codex plugin add lesson-plan-authoring-skill@teaching-works-lab
+      auto_installs: []
+    skills:
+      explicit_triggers:
+        - $lesson-plan-authoring-skill
+      bundled:
+        - lesson-plan-authoring-skill
+    inputs:
+      - approved school teaching-design template
+      - course syllabus / assessment plan
+      - exact calibrated lesson-plan baseline (when revising)
+    outputs:
+      - canonical Markdown lesson-plan source bundle
+      - compiled school-format DOCX (via lesson-plan-compiler)
+    provides:
+      - lesson-plan-authoring-contract
+      - markdown-first-discipline
+    relations:
+      - type: optional-companion
+        target: lesson-plan-compiler
+        required: false
