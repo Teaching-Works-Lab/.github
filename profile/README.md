@@ -37,14 +37,22 @@ flowchart TD
     H -.教学成果存档.-> L[Course Teaching Archive]
     M[学习通教师端 mooc2-ans] --> N[Chaoxing Ops]
     N --> O[题库 / 章节 / 测验 / 作业发布 / 资料库]
+    P[Word 官方模板 .docx] --> Q[Docx Template to Skill]
+    Q -->|生成但不自动安装| R[模板专用填写 Skill]
+    T[内容 JSON] --> S[格式零改动的已填 DOCX]
+    P --> V[CZJTU Project Application 2026]
+    R --> S
+    T --> V
+    V --> S
+    S -.verify_fill 独立验收.-> U[白名单外 0 处改动报告]
 ```
 
-关系只有三类：
+关系分为四类：
 
 - **捆绑安装**：`course-teaching-workflows` 一次安装提供课程基座、考核设计和课程大纲编制三个 Skill。
 - **可选协作**：试卷 Word、考核归档和专业数据 Skill 独立安装；任务需要时再组合。
-- **生成产物**：培养方案工厂生成新的专业 Skill，但不会静默安装它。
-- **独立运营层**：`chaoxing-ops` 面向学习通平台实操（题库导入、章节管理、作业发布、资料库上传），不依赖课程文档链路；`course-teaching-archive` 是纯存档仓库，不含可执行 Skill。
+- **生成产物**：培养方案工厂生成新的专业 Skill，但不会静默安装它；Word 模板元技能生成的专用填写 Skill 同样不会静默安装。
+- **独立运营层**：`chaoxing-ops` 面向学习通平台实操（题库导入、章节管理、作业发布、资料库上传），不依赖课程文档链路。`word-template-auto-fill-skill` 是独立的模板填写层：元技能产出专用 Skill，申请书实例直接套用官方模板，两者都用 `verify_fill.py` 独立验收格式保真。`course-teaching-archive` 是纯存档仓库，不含可执行 Skill。
 
 ## 安装与触发不是一回事
 
@@ -63,7 +71,7 @@ codex plugin add intelligent-manufacturing-syllabus@teaching-works-lab
 
 添加 Marketplace 只是获得可安装目录，不会自动安装全部 Plugin。安装一个 Plugin 也不会自动安装它的可选协作项或生成产物。
 
-> `chaoxing-ops` 走文件系统安装（`git clone https://github.com/Teaching-Works-Lab/chaoxing-ops.git ~/.workbuddy/skills/chaoxing-ops`），不在 Marketplace 目录内；安装与运行要求见其仓库 README。`course-teaching-archive` 是纯存档仓库，直接查阅即可。
+> `chaoxing-ops` 走文件系统安装（`git clone https://github.com/Teaching-Works-Lab/chaoxing-ops.git ~/.workbuddy/skills/chaoxing-ops`），不在 Marketplace 目录内；安装与运行要求见其仓库 README。`word-template-auto-fill-skill` 同样不在 Marketplace 内，用包内 `python install.py` 安装两个 Skill（依赖 lxml，装后跑 `check_env.py`）。`course-teaching-archive` 是纯存档仓库，直接查阅即可。
 
 ## WorkBuddy 兼容
 
@@ -79,6 +87,14 @@ $course-syllabus-compiler
 $lesson-plan-compiler
 $exam-word
 $course-assessment-archive
+```
+
+在 WorkBuddy 下同名 Skill 用 `@skill:<name>` 显式调用；新安装的 Skill 在下次会话起可识别：
+
+```text
+@skill:chaoxing-ops
+@skill:docx-template-to-skill
+@skill:czjtu-project-application-2026
 ```
 
 当任务重要、名称相近或希望固定工作方式时，优先显式调用。
