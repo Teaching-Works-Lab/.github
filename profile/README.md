@@ -64,8 +64,11 @@ codex plugin add intelligent-manufacturing-syllabus@teaching-works-lab
 
 > `chaoxing-ops` 走文件系统安装（`git clone https://github.com/Teaching-Works-Lab/chaoxing-ops.git ~/.workbuddy/skills/chaoxing-ops`），不在 Marketplace 目录内；安装与运行要求见其仓库 README。`course-teaching-archive` 是纯存档仓库，直接查阅即可。
 
-安装后可以让 Codex 根据请求与 Skill 描述自动选择，也可以显式调用：
+## WorkBuddy 兼容
 
+本组织所有 Skill 同时兼容 WorkBuddy：根目录 `SKILL.md` 与 Codex Skill 同构，按各仓库 README 的「WorkBuddy 安装（Skill）」段克隆到 `~/.workbuddy/skills/<name>` 即可，`@skill:<name>` 显式调用。Codex Marketplace 与 WorkBuddy skills 目录是两套并行发现机制，可同时安装、互不干扰；多 Skill 捆绑包（`course-teaching-workflows`）在 WorkBuddy 下按三个子 Skill 分别安装。
+
+安装后可以让 Codex 根据请求与 Skill 描述自动选择，也可以显式调用：
 ```text
 $training-program-skill-factory
 $intelligent-manufacturing-syllabus
