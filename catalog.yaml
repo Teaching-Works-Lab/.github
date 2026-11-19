@@ -241,3 +241,125 @@ items:
       - type: optional-companion
         target: lesson-plan-compiler
         required: false
+
+# 未打包为 Codex Plugin 的仓库：按各自仓库 README 安装（git clone / 文件系统加载），
+# 不在 Marketplace 目录内，install.command 仅为安装方式说明。
+external:
+  - id: chaoxing-ops
+    repository: https://github.com/Teaching-Works-Lab/chaoxing-ops
+    role: "Operate the Chaoxing (mooc2-ans) teacher console: question banks, chapters, chapter quizzes, homework publishing, and course resource uploads."
+    scope: Platform operation on the learning-management system; not course document production.
+    install:
+      method: git-clone
+      command: git clone https://github.com/Teaching-Works-Lab/chaoxing-ops.git
+      requires: ego-browser browser automation with an authenticated teacher session
+    provides:
+      - question-bank-xls-generation
+      - chapter-management
+      - homework-publishing
+      - course-resource-upload
+    relations:
+      - type: optional-companion
+        target: course-teaching-workflows
+        required: false
+
+  - id: course-teaching-archive
+    repository: https://github.com/Teaching-Works-Lab/course-teaching-archive
+    role: Archive course teaching outcomes (syllabi and lesson plans) in per-year atomic directory versions.
+    scope: Static archive of produced documents; contains no executable Skill.
+    install:
+      method: reference
+      command: none
+      requires: none
+    provides:
+      - teaching-outcome-archive
+
+  - id: mechanical-engineering-syllabus
+    repository: https://github.com/Teaching-Works-Lab/mechanical-engineering-syllabus
+    role: Query reviewable Mechanical Engineering 2025 training-program data for syllabus preparation.
+    scope: One professional program and version; not a generic syllabus writer.
+    install:
+      method: git-clone
+      command: git clone https://github.com/Teaching-Works-Lab/mechanical-engineering-syllabus.git
+      note: not yet packaged with .codex-plugin; marketplace entry pending packaging
+    provides:
+      - professional-training-program-evidence
+    relations:
+      - type: generated-by
+        target: training-program-skill-factory
+        required: false
+      - type: optional-input-to
+        target: course-teaching-workflows
+        required: false
+
+  - id: mechanical-engineering-upgrade-syllabus
+    repository: https://github.com/Teaching-Works-Lab/mechanical-engineering-upgrade-syllabus
+    role: Query reviewable Mechanical Engineering (upgrade track) 2025 training-program data for syllabus preparation.
+    scope: One professional program and version; not a generic syllabus writer.
+    install:
+      method: git-clone
+      command: git clone https://github.com/Teaching-Works-Lab/mechanical-engineering-upgrade-syllabus.git
+      note: not yet packaged with .codex-plugin; marketplace entry pending packaging
+    provides:
+      - professional-training-program-evidence
+    relations:
+      - type: generated-by
+        target: training-program-skill-factory
+        required: false
+      - type: optional-input-to
+        target: course-teaching-workflows
+        required: false
+
+  - id: energy-and-power-engineering-syllabus
+    repository: https://github.com/Teaching-Works-Lab/energy-and-power-engineering-syllabus
+    role: Query reviewable Energy and Power Engineering 2025 training-program data for syllabus preparation.
+    scope: One professional program and version; not a generic syllabus writer.
+    install:
+      method: git-clone
+      command: git clone https://github.com/Teaching-Works-Lab/energy-and-power-engineering-syllabus.git
+      note: not yet packaged with .codex-plugin; marketplace entry pending packaging
+    provides:
+      - professional-training-program-evidence
+    relations:
+      - type: generated-by
+        target: training-program-skill-factory
+        required: false
+      - type: optional-input-to
+        target: course-teaching-workflows
+        required: false
+
+  - id: vehicle-engineering-syllabus
+    repository: https://github.com/Teaching-Works-Lab/vehicle-engineering-syllabus
+    role: Query reviewable Vehicle Engineering 2025 training-program data for syllabus preparation.
+    scope: One professional program and version; not a generic syllabus writer.
+    install:
+      method: git-clone
+      command: git clone https://github.com/Teaching-Works-Lab/vehicle-engineering-syllabus.git
+      note: not yet packaged with .codex-plugin; marketplace entry pending packaging
+    provides:
+      - professional-training-program-evidence
+    relations:
+      - type: generated-by
+        target: training-program-skill-factory
+        required: false
+      - type: optional-input-to
+        target: course-teaching-workflows
+        required: false
+
+  - id: vehicle-engineering-upgrade-syllabus
+    repository: https://github.com/Teaching-Works-Lab/vehicle-engineering-upgrade-syllabus
+    role: Query reviewable Vehicle Engineering (upgrade track) 2025 training-program data for syllabus preparation.
+    scope: One professional program and version; not a generic syllabus writer.
+    install:
+      method: git-clone
+      command: git clone https://github.com/Teaching-Works-Lab/vehicle-engineering-upgrade-syllabus.git
+      note: not yet packaged with .codex-plugin; marketplace entry pending packaging
+    provides:
+      - professional-training-program-evidence
+    relations:
+      - type: generated-by
+        target: training-program-skill-factory
+        required: false
+      - type: optional-input-to
+        target: course-teaching-workflows
+        required: false

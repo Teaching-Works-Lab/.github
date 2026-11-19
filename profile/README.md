@@ -62,7 +62,7 @@ codex plugin add intelligent-manufacturing-syllabus@teaching-works-lab
 
 添加 Marketplace 只是获得可安装目录，不会自动安装全部 Plugin。安装一个 Plugin 也不会自动安装它的可选协作项或生成产物。
 
-> `chaoxing-ops` 走文件系统安装（`git clone https://github.com/Teaching-Works-Lab/chaoxing-ops.git ~/.workbuddy/skills/chaoxing-ops`），不在 Marketplace 目录内；安装与运行要求见其仓库 README。
+> `chaoxing-ops` 走文件系统安装（`git clone https://github.com/Teaching-Works-Lab/chaoxing-ops.git ~/.workbuddy/skills/chaoxing-ops`），不在 Marketplace 目录内；安装与运行要求见其仓库 README。机械、车辆、能动等 5 个专业培养方案数据 Skill 与 `course-teaching-archive` 同样未打包进 Marketplace，按各自仓库 README 安装或直接查阅。
 
 安装后可以让 Codex 根据请求与 Skill 描述自动选择，也可以显式调用：
 
