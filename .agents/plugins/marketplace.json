@@ -94,6 +94,71 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Education"
+    },
+    {
+      "name": "mechanical-engineering-syllabus",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/Teaching-Works-Lab/mechanical-engineering-syllabus.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education"
+    },
+    {
+      "name": "mechanical-engineering-upgrade-syllabus",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/Teaching-Works-Lab/mechanical-engineering-upgrade-syllabus.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education"
+    },
+    {
+      "name": "energy-and-power-engineering-syllabus",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/Teaching-Works-Lab/energy-and-power-engineering-syllabus.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education"
+    },
+    {
+      "name": "vehicle-engineering-syllabus",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/Teaching-Works-Lab/vehicle-engineering-syllabus.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education"
+    },
+    {
+      "name": "vehicle-engineering-upgrade-syllabus",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/Teaching-Works-Lab/vehicle-engineering-upgrade-syllabus.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education"
     }
   ]
 }
