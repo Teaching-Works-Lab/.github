@@ -17,6 +17,7 @@
 | 运营学习通课程（题库、章节、作业发布、资料库） | [chaoxing-ops](https://github.com/Teaching-Works-Lab/chaoxing-ops) | 题目内容、课程参数（`courseId` / `clazzId` / `cpi` / `enc`） | 题库 `.xls`、已发布的测验/作业、已上传的课程资料 |
 | 查询其他机械与车辆专业 2025 版课程依据 | [mechanical-engineering-syllabus](https://github.com/Teaching-Works-Lab/mechanical-engineering-syllabus)（及 upgrade、energy-and-power、vehicle 各版本） | 课程名称或代码 | 课程字段、指标点关系、派生追踪 |
 | 归档课程教学成果（大纲 + 教案） | [course-teaching-archive](https://github.com/Teaching-Works-Lab/course-teaching-archive) | 已编制的课程大纲、教案 | 按年份分版本的原子化归档目录 |
+| 把 Word 官方模板变成可复用填写 Skill，或填写校内项目申请书 | [word-template-auto-fill-skill](https://github.com/Teaching-Works-Lab/word-template-auto-fill-skill) | `.docx` 模板 + 内容 JSON | 格式零改动的已填 DOCX / 新专用 Skill |
 
 ## 它们怎样协作
 
